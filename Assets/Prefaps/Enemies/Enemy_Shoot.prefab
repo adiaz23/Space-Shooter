@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 134524916727101873}
   - component: {fileID: 1171130305222648376}
-  - component: {fileID: 3036401932957711164}
   - component: {fileID: 9195659144588290035}
   - component: {fileID: 8418854152462642901}
+  - component: {fileID: -279670018293019130}
   m_Layer: 0
   m_Name: Enemy_Shoot
   m_TagString: EnemyProjectile
@@ -90,20 +90,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3036401932957711164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4653423898491474327}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81ad6a8e7aee75d49a42f346f7c85f07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 8
-  direction: {x: -1, y: 0}
 --- !u!50 &9195659144588290035
 Rigidbody2D:
   serializedVersion: 5
@@ -167,3 +153,17 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.64
+--- !u!114 &-279670018293019130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4653423898491474327}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81ad6a8e7aee75d49a42f346f7c85f07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 8
+  direction: {x: -1, y: 0}
