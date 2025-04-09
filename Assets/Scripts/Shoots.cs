@@ -4,7 +4,7 @@ public class Shoots : MonoBehaviour
 {
 
     [SerializeField] private float speed;
-    [SerializeField] private Vector2 direction;	
+    [SerializeField] private Vector2 direction;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

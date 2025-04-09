@@ -8,16 +8,35 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject shootPrefab;
     [SerializeField] private GameObject spawnPoint1;
     [SerializeField] private GameObject spawnPoint2;
+    [SerializeField] private AudioClip clip;
+
+    private AudioSource audioSource;   
     
     private float timer = 0.5f;
     private float lives = 100;
-    
+
+    void Start(){
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Update()
     {
         Move();
         DelimitMove();
         Shoot();
     }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.CompareTag("EnemyProjectile") || other.gameObject.CompareTag("Enemy")){
+            lives -= 20;
+            DestroyEnemy(other);
+            if(lives <= 0){
+                DestroyPlayer();
+            }
+               
+        }
+    }   
 
     private void Move(){
         //Vertical movement
@@ -45,14 +64,16 @@ public class Player : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.CompareTag("EnemyProjectile") || other.gameObject.CompareTag("Enemy")){
-            lives -= 20;
-            Destroy(other.gameObject);
-            if(lives <= 0)
-                Destroy(gameObject);
-        }
+    private void DestroyPlayer(){
+        GameObject  playerVisual = transform.GetChild(0).gameObject;
+        audioSource.PlayOneShot(clip);
+        playerVisual.GetComponent<SpriteRenderer>().enabled = false;
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        Destroy(gameObject, 2f);
+    }
+
+    private void DestroyEnemy(Collider2D other){
+        Destroy(other.gameObject);
     }
 
 }
