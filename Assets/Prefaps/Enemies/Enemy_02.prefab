@@ -2771,10 +2771,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  shootPrefab: {fileID: 4653423898491474327, guid: fabec3f227e846543a46679c786517fe,
+  shootPrefab: {fileID: -279670018293019130, guid: fabec3f227e846543a46679c786517fe,
     type: 3}
-  spawn1Prefab: {fileID: 3163930763318332144}
-  spawn2Prefab: {fileID: 3555509457481169747}
+  spawnPrefabs:
+  - {fileID: 7832594817631829565}
+  - {fileID: 8919085690784763709}
 --- !u!1 &9096687798287510691
 GameObject:
   m_ObjectHideFlags: 0

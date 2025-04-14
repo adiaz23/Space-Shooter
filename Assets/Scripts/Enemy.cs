@@ -4,11 +4,9 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed;
-    [SerializeField] private GameObject shootPrefab;
+    [SerializeField] private Shoots shootPrefab;
 
-    [SerializeField] private GameObject spawn1Prefab;
-
-    [SerializeField] private GameObject spawn2Prefab;
+    [SerializeField] private Transform[] spawnPrefabs;
 
     void Start(){
         StartCoroutine(Shoot());
@@ -25,8 +23,8 @@ public class Enemy : MonoBehaviour
 
     IEnumerator Shoot(){
         while(gameObject){
-        Instantiate(shootPrefab, spawn1Prefab.transform.position, Quaternion.identity);
-        Instantiate(shootPrefab, spawn2Prefab.transform.position, Quaternion.identity);
+        for(int counter = 0; counter < spawnPrefabs.Length; counter++)
+            Instantiate(shootPrefab, spawnPrefabs[counter].transform.position, Quaternion.identity);
         yield return new WaitForSeconds(1f);
         }
         
