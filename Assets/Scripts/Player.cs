@@ -5,9 +5,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float shootRate;
-    [SerializeField] private GameObject shootPrefab;
-    [SerializeField] private GameObject spawnPoint1;
-    [SerializeField] private GameObject spawnPoint2;
+    [SerializeField] private Shoots shootPrefab;
+    [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private AudioClip clip;
 
     private AudioSource audioSource;   
@@ -57,11 +56,13 @@ public class Player : MonoBehaviour
         timer += 1 * Time.deltaTime;
 
         if(Input.GetKey(KeyCode.Space) && timer > shootRate){
-
-            Instantiate(shootPrefab, spawnPoint1.transform.position, Quaternion.identity);
-            Instantiate(shootPrefab, spawnPoint2.transform.position, Quaternion.identity);
+            
+            for(int counter = 0; counter < 2; counter++)
+                Instantiate(shootPrefab, spawnPoints[counter].transform.position, Quaternion.identity);
+            
             timer = 0;
         }
+
     }
 
     private void DestroyPlayer(){

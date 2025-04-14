@@ -139,11 +139,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   shootRate: 0.8
-  shootPrefab: {fileID: 5038634352791077503, guid: 0863c82d61440aa44aecdea20ea2f062,
+  shootPrefab: {fileID: -3618038798105447677, guid: 0863c82d61440aa44aecdea20ea2f062,
     type: 3}
-  spawnPoint1: {fileID: 6022829756692080962}
-  spawnPoint2: {fileID: 5060275599363278564}
-  explosionAudioSource: {fileID: 0}
+  spawnPoints:
+  - {fileID: 5872759950266751650}
+  - {fileID: 977343911056080193}
+  clip: {fileID: 0}
 --- !u!50 &6308287548468052516
 Rigidbody2D:
   serializedVersion: 5
@@ -388,12 +389,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4314888527936682761}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5060275599363278564 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9068039191399693805, guid: e00800f0432ed944080421880c6b1564,
-    type: 3}
-  m_PrefabInstance: {fileID: 4314888527936682761}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7710026019540123469
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -465,12 +460,6 @@ PrefabInstance:
 --- !u!4 &5872759950266751650 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4287356337085441519, guid: 038f38723b8d48c44991d6e13b759043,
-    type: 3}
-  m_PrefabInstance: {fileID: 7710026019540123469}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &6022829756692080962 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4137365568795547151, guid: 038f38723b8d48c44991d6e13b759043,
     type: 3}
   m_PrefabInstance: {fileID: 7710026019540123469}
   m_PrefabAsset: {fileID: 0}
