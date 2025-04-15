@@ -1,10 +1,11 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    [SerializeField] private GameObject enemyPrefab;
+    [SerializeField] private Enemy[] enemyPrefab;
     [SerializeField] private TextMeshProUGUI waveText;
 
     void Start()
@@ -28,8 +29,7 @@ public class Spawner : MonoBehaviour
                 waveText.text = "";
 
                 for(int enemyNumber = 0; enemyNumber < 10; enemyNumber++){
-                    Vector2 randomPoint = new Vector2(transform.position.x, Random.Range(-4.10f, 4.10f));
-                    Instantiate(enemyPrefab, randomPoint, Quaternion.identity);
+                    GenerateEnemies(); 
                     yield return new WaitForSeconds(0.5f);
                 }
 
@@ -38,5 +38,12 @@ public class Spawner : MonoBehaviour
 
             yield return new WaitForSeconds(4f);
         }
+    }
+
+    void GenerateEnemies(){
+        float posittionY = Random.Range(-4.10f, 4.10f);
+        Vector2 randomPoint = new(transform.position.x, posittionY);
+        int randomEnemy = Random.Range(0, 2);
+        Instantiate(enemyPrefab[randomEnemy], randomPoint, Quaternion.identity);
     }
 }
