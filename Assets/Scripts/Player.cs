@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] private Shoots shootPrefab;
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private AudioClip clip;
+    [SerializeField] private GameManager gameManager;
 
     private AudioSource audioSource;   
     
@@ -19,7 +20,7 @@ public class Player : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
         Move();
         DelimitMove();
         Shoot();
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
             lives -= 20;
             DestroyEnemy(other);
             if(lives <= 0){
+                gameManager.GameOver();
                 DestroyPlayer();
             }
                
