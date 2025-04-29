@@ -7,11 +7,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private Player player;
 
-     void Update()
-    {
-        
-    }
-
     public void GameOver(){
         gameOverUI.SetActive(true);
     }
@@ -26,6 +21,10 @@ public class GameManager : MonoBehaviour
 
     public void StartGame(){
          SceneManager.LoadScene("Game");
+    }
+
+    public void GoToOptionsMenu(){
+        SceneManager.LoadScene("Options");
     }
 
     public void Quit(){
