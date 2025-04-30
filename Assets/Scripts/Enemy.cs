@@ -42,13 +42,18 @@ public class Enemy : MonoBehaviour
         SpriteRenderer enemySprite = enemyVisual.GetComponent<SpriteRenderer>();
         Collider2D enemyCollider = gameObject.GetComponent<Collider2D>();
 
-        if(other.gameObject.CompareTag("Projectile") && enemySprite.enabled){
-             Destroy(other.gameObject);
+        if((other.gameObject.CompareTag("Projectile") || other.gameObject.CompareTag("Player")) && enemySprite.enabled){
+             DestroyProjectile(other);
              audioSource.PlayOneShot(clip);
              enemySprite.enabled = false;
              enemyCollider.enabled = false;
              Instantiate(effectsPrefab, transform.position, Quaternion.identity);
              Destroy(gameObject, 1f);
         }
+    }
+
+    void DestroyProjectile(Collider2D other){
+        if(other.gameObject.CompareTag("Projectile"))
+            Destroy(other.gameObject);
     }
 }

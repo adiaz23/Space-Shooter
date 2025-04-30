@@ -10,11 +10,18 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip clip;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject effectsPrefab;
+    [SerializeField] private HealthBar healthBar;
+
     private AudioSource audioSource;   
     private float timer = 0.5f;
-    private float lives = 100;
+    private int lives = 100;
+    private int currentLives;
+
+    private int damageTaken = 10;
 
     void Start(){
+        currentLives = lives;
+        healthBar.SetMaxHealth(lives);
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -28,15 +35,19 @@ public class Player : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         if(other.gameObject.CompareTag("EnemyProjectile") || other.gameObject.CompareTag("Enemy")){
-            lives -= 20;
-            DestroyEnemy(other);
-            if(lives <= 0){
+            DestroyEnemyProjectiles(other);
+            TakeDamage(damageTaken);
+            if(currentLives <= 0){
                 gameManager.GameOver();
                 DestroyPlayer();
             }
-               
         }
-    }   
+    } 
+
+    private void TakeDamage(int damage){
+        currentLives -= damage;
+        healthBar.SetHealth(currentLives);
+    }
 
     private void Move(){
         //Vertical movement
@@ -75,8 +86,9 @@ public class Player : MonoBehaviour
         Destroy(gameObject, 2f);
     }
 
-    private void DestroyEnemy(Collider2D other){
-        Destroy(other.gameObject);
+    private void DestroyEnemyProjectiles(Collider2D other){
+       if(other.gameObject.CompareTag("EnemyProjectile")){}
+            Destroy(other.gameObject);
     }
 
 }

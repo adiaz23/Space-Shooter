@@ -149,6 +149,8 @@ MonoBehaviour:
     type: 3}
   effectsPrefab: {fileID: 7538740421499908311, guid: ee1a92c812b77de40ab413f4a045402d,
     type: 3}
+  healthBar: {fileID: 2976890538505077230, guid: 424f2ee219ba3724680a5d0015ad80f3,
+    type: 3}
 --- !u!50 &6308287548468052516
 Rigidbody2D:
   serializedVersion: 5
