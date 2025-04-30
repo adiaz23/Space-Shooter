@@ -41,7 +41,8 @@ AudioSource:
   m_GameObject: {fileID: 532218318768131346}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4461580860748555963, guid: 70db07b199ea1d74692000ed825b423b,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 82e0834d5a568dd42ba134449e76decf, type: 3}
   m_Resource: {fileID: 8300000, guid: 82e0834d5a568dd42ba134449e76decf, type: 3}
   m_PlayOnAwake: 1
@@ -297,4 +298,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 8
   direction: {x: -1, y: 0}
-  shootSound: {fileID: 6572113029864770131}
