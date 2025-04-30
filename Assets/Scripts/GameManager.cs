@@ -21,10 +21,12 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver(){
         gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
     }
 
     public void Restart(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1f;
     }
 
     public void GoToMainMenu(){
@@ -51,9 +53,11 @@ public class GameManager : MonoBehaviour
     }
 
     void Pause(){
-        pauseUI.SetActive(true);
-        Time.timeScale = 0f;
-        isPaused = true;
+        if(gameOverUI.activeSelf == false){
+            pauseUI.SetActive(true);
+            Time.timeScale = 0f;
+            isPaused = true;
+        }    
     }
 
     public void Quit(){
