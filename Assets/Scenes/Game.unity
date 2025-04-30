@@ -597,6 +597,23 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1270386598558051673, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 3b53ef639a3dd1944ad5d67e88d854bc,
+        type: 2}
+    - target: {fileID: 1270386598558051673, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 4543871960486750634, guid: 3b53ef639a3dd1944ad5d67e88d854bc,
+        type: 2}
+    - target: {fileID: 1270386598558051673, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3614806081967145123, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
       propertyPath: m_Pivot.x
@@ -735,7 +752,7 @@ PrefabInstance:
     - target: {fileID: 5062869800858773433, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Quit
+      value: GoToMainMenu
       objectReference: {fileID: 0}
     - target: {fileID: 5062869800858773433, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
@@ -756,6 +773,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879363666902454250, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 346.0451
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879363666902454250, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 56.5103
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879363666902454250, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879363666902454250, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 79
+      objectReference: {fileID: 0}
+    - target: {fileID: 8096986571437554617, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_Transition
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8096986571437554617, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
