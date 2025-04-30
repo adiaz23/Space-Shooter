@@ -10,6 +10,8 @@ public class Player : MonoBehaviour
     [SerializeField] private AudioClip clip;
     [SerializeField] private GameManager gameManager;
 
+    [SerializeField] private GameObject effectsPrefab;
+
     private AudioSource audioSource;   
     
     private float timer = 0.5f;
@@ -69,6 +71,7 @@ public class Player : MonoBehaviour
 
     private void DestroyPlayer(){
         GameObject  playerVisual = transform.GetChild(0).gameObject;
+        Instantiate(effectsPrefab, transform.position, Quaternion.identity);
         audioSource.PlayOneShot(clip);
         playerVisual.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<Collider2D>().enabled = false;

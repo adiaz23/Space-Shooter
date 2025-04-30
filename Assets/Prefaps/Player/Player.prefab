@@ -147,6 +147,8 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: 2ddf220f20379f44ca7ea84972605d9e, type: 3}
   gameManager: {fileID: 1864495312851587862, guid: 181c7d4edf2b5354690b99dcfbcdb6c2,
     type: 3}
+  effectsPrefab: {fileID: 7538740421499908311, guid: ee1a92c812b77de40ab413f4a045402d,
+    type: 3}
 --- !u!50 &6308287548468052516
 Rigidbody2D:
   serializedVersion: 5
