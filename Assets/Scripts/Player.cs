@@ -9,11 +9,8 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform[] spawnPoints;
     [SerializeField] private AudioClip clip;
     [SerializeField] private GameManager gameManager;
-
     [SerializeField] private GameObject effectsPrefab;
-
     private AudioSource audioSource;   
-    
     private float timer = 0.5f;
     private float lives = 100;
 

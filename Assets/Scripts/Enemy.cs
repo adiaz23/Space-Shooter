@@ -5,10 +5,13 @@ public class Enemy : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private Shoots shootPrefab;
-
     [SerializeField] private Transform[] spawnPrefabs;
+    [SerializeField] private AudioClip clip;
+    private AudioSource audioSource;
+    [SerializeField] private GameObject effectsPrefab;
 
     void Start(){
+        audioSource = GetComponent<AudioSource>();
         StartCoroutine(Shoot());
     }
 
@@ -22,19 +25,30 @@ public class Enemy : MonoBehaviour
     }
 
     IEnumerator Shoot(){
-        while(gameObject){
-        for(int counter = 0; counter < spawnPrefabs.Length; counter++)
-            Instantiate(shootPrefab, spawnPrefabs[counter].transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(1f);
+        GameObject enemyVisual = transform.GetChild(0).gameObject.transform.GetChild(1).gameObject;
+        SpriteRenderer enemySprite = enemyVisual.GetComponent<SpriteRenderer>();
+        
+        while(enemySprite.enabled){
+            for(int counter = 0; counter < spawnPrefabs.Length; counter++)
+                Instantiate(shootPrefab, spawnPrefabs[counter].transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(2.5f);
         }
         
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.CompareTag("Projectile")){
+        GameObject enemyVisual = transform.GetChild(0).gameObject.transform.GetChild(1).gameObject;
+        SpriteRenderer enemySprite = enemyVisual.GetComponent<SpriteRenderer>();
+        Collider2D enemyCollider = gameObject.GetComponent<Collider2D>();
+
+        if(other.gameObject.CompareTag("Projectile") && enemySprite.enabled){
              Destroy(other.gameObject);
-             Destroy(gameObject);
+             audioSource.PlayOneShot(clip);
+             enemySprite.enabled = false;
+             enemyCollider.enabled = false;
+             Instantiate(effectsPrefab, transform.position, Quaternion.identity);
+             Destroy(gameObject, 1f);
         }
     }
 }
