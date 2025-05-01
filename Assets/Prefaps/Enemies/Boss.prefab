@@ -3832,6 +3832,8 @@ MonoBehaviour:
   clip: {fileID: 8300000, guid: 2ddf220f20379f44ca7ea84972605d9e, type: 3}
   effectsPrefab: {fileID: 7538740421499908311, guid: ee1a92c812b77de40ab413f4a045402d,
     type: 3}
+  healthBar: {fileID: 2976890538505077230, guid: 424f2ee219ba3724680a5d0015ad80f3,
+    type: 3}
 --- !u!82 &-5490718122470971905
 AudioSource:
   m_ObjectHideFlags: 0

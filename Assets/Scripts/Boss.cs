@@ -9,15 +9,18 @@ public class Boss : MonoBehaviour
     [SerializeField] private Transform[] spawnPrefabs;
     [SerializeField] private AudioClip clip;
     [SerializeField] private GameObject effectsPrefab;
+    [SerializeField] private HealthBar healthBar;
 
     private AudioSource audioSource;
-
-    GameObject bossVisual;
-    Collider2D bossCollider;
-    SpriteRenderer bossSprite;
+    private GameObject bossVisual;
+    private Collider2D bossCollider;
+    private SpriteRenderer bossSprite;
     private bool inPosition = false;
     private bool isMoving = false;
     private Vector2 target;
+
+    private int lives = 500;
+    private int remainLives;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -26,6 +29,8 @@ public class Boss : MonoBehaviour
         bossSprite = bossVisual.GetComponent<SpriteRenderer>();
         audioSource = gameObject.GetComponent<AudioSource>();
         bossCollider = gameObject.GetComponent<Collider2D>();
+        remainLives = lives;
+        healthBar.SetMaxHealth(lives);
         StartCoroutine(Shoot()); 
     }
 
@@ -47,13 +52,21 @@ public class Boss : MonoBehaviour
         }
 
         if((other.gameObject.CompareTag("Projectile") || other.gameObject.CompareTag("Player")) && bossSprite.enabled){
-             DestroyProjectile(other);
-             audioSource.PlayOneShot(clip);
-             bossSprite.enabled = false;
-             bossCollider.enabled = false;
-             Instantiate(effectsPrefab, transform.position, Quaternion.identity);
-             Destroy(gameObject, 1f);
+            DestroyProjectile(other);
+            TakeDamage(100);
+            if (remainLives <= 0){
+                audioSource.PlayOneShot(clip);
+                bossSprite.enabled = false;
+                bossCollider.enabled = false;
+                Instantiate(effectsPrefab, transform.position, Quaternion.identity);
+                Destroy(gameObject, 1f);
+            }   
         }
+    }
+
+    private void TakeDamage(int damage){
+        remainLives -= damage;
+        healthBar.SetHealth(remainLives);
     }
 
     private void DestroyProjectile(Collider2D other)
