@@ -49,3 +49,5 @@ MonoBehaviour:
   - {fileID: -7608153210322313516, guid: 084d57ee81b2b814e8ef4386663aa943, type: 3}
   waveText: {fileID: 2590487911892219152, guid: 8dcf7d09aca10a84aa9149141c72ab33,
     type: 3}
+  gameManager: {fileID: 1864495312851587862, guid: 181c7d4edf2b5354690b99dcfbcdb6c2,
+    type: 3}

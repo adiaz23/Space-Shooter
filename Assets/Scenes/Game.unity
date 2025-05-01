@@ -566,6 +566,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1008087315 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4180102165312269330, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+    type: 3}
+  m_PrefabInstance: {fileID: 1227387326738998705}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1167225444 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3829292213228940052, guid: e8ae01eddceaaa1468c0448e7dd6a327,
@@ -632,6 +638,12 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2632623068254767824, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 433445684645383179, guid: f01df97ef9be9734abb5975cd80414b9,
+        type: 3}
     - target: {fileID: 3614806081967145123, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
       propertyPath: m_Pivot.x
@@ -735,12 +747,17 @@ PrefabInstance:
     - target: {fileID: 3721054127918365079, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 482
+      value: -101.93
       objectReference: {fileID: 0}
     - target: {fileID: 3721054127918365079, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -51.003
+      value: -51.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4180102165312269330, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5062869800858773433, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
@@ -757,6 +774,12 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.69411767
       objectReference: {fileID: 0}
+    - target: {fileID: 5062869800858773433, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 3989197973484077536, guid: 2b3875b6ef44837469c84805d34b53f1,
+        type: 3}
     - target: {fileID: 5062869800858773433, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -825,7 +848,7 @@ PrefabInstance:
     - target: {fileID: 8096986571437554617, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
       propertyPath: m_Transition
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8096986571437554617, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
@@ -874,6 +897,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8096986571437554617, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 961655644467487993, guid: 513f891e06dbbd74492e8ea12b8b4a18,
+        type: 3}
+    - target: {fileID: 8096986571437554617, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -917,6 +946,12 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 8338409576962083372, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_SpriteState.m_PressedSprite
+      value: 
+      objectReference: {fileID: 3989197973484077536, guid: 2b3875b6ef44837469c84805d34b53f1,
+        type: 3}
     - target: {fileID: 9010501300080367789, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
       propertyPath: m_AnchorMax.x
@@ -956,6 +991,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1864495312851587862, guid: 181c7d4edf2b5354690b99dcfbcdb6c2,
+        type: 3}
+      propertyPath: winUI
+      value: 
+      objectReference: {fileID: 1008087315}
     - target: {fileID: 1864495312851587862, guid: 181c7d4edf2b5354690b99dcfbcdb6c2,
         type: 3}
       propertyPath: player
@@ -1056,6 +1096,11 @@ PrefabInstance:
       propertyPath: waveText
       value: 
       objectReference: {fileID: 1414910946}
+    - target: {fileID: 5132552697068030515, guid: bd85ba9e7ea37bb46b64d2c2f55b5ba5,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 4218112270228686959}
     - target: {fileID: 6334780860871240753, guid: bd85ba9e7ea37bb46b64d2c2f55b5ba5,
         type: 3}
       propertyPath: m_LocalPosition.x

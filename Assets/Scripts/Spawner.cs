@@ -8,6 +8,8 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Enemy[] enemyPrefab;
     [SerializeField] private TextMeshProUGUI waveText;
 
+    [SerializeField] private GameManager gameManager;
+
     void Start()
     {
        StartCoroutine(SpawnEnemies());
@@ -20,15 +22,18 @@ public class Spawner : MonoBehaviour
     }
 
     IEnumerator SpawnEnemies(){
-
-        for (int level = 0; level < 5; level++){
-
-            for(int enemyWave = 0; enemyWave < 3; enemyWave++){
-                waveText.text = $"Level {level+1} - Wave {enemyWave+1}";
+        int level = 0;
+        int maxLevel = 5;
+        int maxWaves = 3;
+        int maxEnemyNumber = 10;
+        for (int levels = 0; levels < maxLevel; levels++){
+            level = levels + 1;
+            for(int enemyWave = 0; enemyWave < maxWaves; enemyWave++){
+                waveText.text = $"Level {level} - Wave {enemyWave+1}";
                 yield return new WaitForSeconds(2f);
                 waveText.text = "";
 
-                for(int enemyNumber = 0; enemyNumber < 10; enemyNumber++){
+                for(int enemyNumber = 0; enemyNumber < maxEnemyNumber; enemyNumber++){
                     GenerateEnemies(); 
                     yield return new WaitForSeconds(0.5f);
                 }
@@ -37,6 +42,10 @@ public class Spawner : MonoBehaviour
             }
 
             yield return new WaitForSeconds(4f);
+        }
+        level += 1;
+        if (level == maxLevel+1){
+            gameManager.Win();
         }
     }
 

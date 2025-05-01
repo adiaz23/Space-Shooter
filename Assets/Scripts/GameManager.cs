@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverUI;
     [SerializeField] private GameObject pauseUI;
+    [SerializeField] private GameObject winUI;
     [SerializeField] private Player player;
     private static bool isPaused = false;
 
@@ -21,6 +22,11 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver(){
         gameOverUI.SetActive(true);
+        Time.timeScale = 0f;
+    }
+
+    public void Win(){
+        winUI.SetActive(true);
         Time.timeScale = 0f;
     }
 

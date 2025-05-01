@@ -47,4 +47,5 @@ MonoBehaviour:
   gameOverUI: {fileID: 829976490464454589, guid: aebc9873e5ef5fe479fac095e7d4c9d7,
     type: 3}
   pauseUI: {fileID: 7854388107776025697, guid: cb001095bbb3f454d907805cf73e12a2, type: 3}
+  winUI: {fileID: 5242454019254273062, guid: 6581028ef52a1c345b1d2e9bd84c14de, type: 3}
   player: {fileID: 5733386224199865691, guid: 2d2f67b50dcbbde40aeadc38a45723f1, type: 3}
