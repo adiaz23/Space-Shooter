@@ -10,6 +10,7 @@ public class Boss : MonoBehaviour
     [SerializeField] private AudioClip clip;
     [SerializeField] private GameObject effectsPrefab;
     [SerializeField] private HealthBar healthBar;
+    [SerializeField] private GameManager gameManager;
 
     private AudioSource audioSource;
     private GameObject bossVisual;
@@ -34,7 +35,6 @@ public class Boss : MonoBehaviour
         StartCoroutine(Shoot()); 
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (inPosition == false)
@@ -49,6 +49,7 @@ public class Boss : MonoBehaviour
     {
         if (other.gameObject.CompareTag("StartBoss")){
             inPosition = true;
+            healthBar.gameObject.SetActive(true);
         }
 
         if((other.gameObject.CompareTag("Projectile") || other.gameObject.CompareTag("Player")) && bossSprite.enabled){
@@ -60,6 +61,7 @@ public class Boss : MonoBehaviour
                 bossCollider.enabled = false;
                 Instantiate(effectsPrefab, transform.position, Quaternion.identity);
                 Destroy(gameObject, 1f);
+                gameManager.Win();
             }   
         }
     }

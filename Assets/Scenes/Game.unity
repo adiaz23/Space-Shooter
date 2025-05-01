@@ -119,6 +119,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &228782135 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6587011998344660894, guid: 94daddc54f3285e44bf9b06fcd28a0ea,
+    type: 3}
+  m_PrefabInstance: {fileID: 1705220487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66b9bbde05712ec429ce4073cc448a2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &275311039
 GameObject:
   m_ObjectHideFlags: 0
@@ -608,7 +620,7 @@ GameObject:
   - component: {fileID: 1230987535}
   - component: {fileID: 1230987537}
   m_Layer: 0
-  m_Name: Square
+  m_Name: StartBoss
   m_TagString: StartBoss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -833,10 +845,20 @@ PrefabInstance:
       propertyPath: healthBar
       value: 
       objectReference: {fileID: 1208352058}
+    - target: {fileID: 6587011998344660894, guid: 94daddc54f3285e44bf9b06fcd28a0ea,
+        type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 4218112270228686959}
     - target: {fileID: 8806780088706033175, guid: 94daddc54f3285e44bf9b06fcd28a0ea,
         type: 3}
       propertyPath: m_Name
       value: Boss
+      objectReference: {fileID: 0}
+    - target: {fileID: 8806780088706033175, guid: 94daddc54f3285e44bf9b06fcd28a0ea,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -881,7 +903,7 @@ PrefabInstance:
     - target: {fileID: 1998455583381611538, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2632623068254767824, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
@@ -1000,6 +1022,11 @@ PrefabInstance:
       value: -51.001
       objectReference: {fileID: 0}
     - target: {fileID: 4180102165312269330, guid: e8ae01eddceaaa1468c0448e7dd6a327,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208403898917198780, guid: e8ae01eddceaaa1468c0448e7dd6a327,
         type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -1343,6 +1370,11 @@ PrefabInstance:
       objectReference: {fileID: 1414910946}
     - target: {fileID: 5132552697068030515, guid: bd85ba9e7ea37bb46b64d2c2f55b5ba5,
         type: 3}
+      propertyPath: bossPrefab
+      value: 
+      objectReference: {fileID: 228782135}
+    - target: {fileID: 5132552697068030515, guid: bd85ba9e7ea37bb46b64d2c2f55b5ba5,
+        type: 3}
       propertyPath: gameManager
       value: 
       objectReference: {fileID: 4218112270228686959}
@@ -1563,7 +1595,9 @@ PrefabInstance:
       value: 5.38
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 5814821766454020753, guid: b873807567bbf464884c1fc6a2298db3, type: 3}
+    - {fileID: 3683485117067303958, guid: b873807567bbf464884c1fc6a2298db3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b873807567bbf464884c1fc6a2298db3, type: 3}

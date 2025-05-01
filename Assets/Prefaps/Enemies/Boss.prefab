@@ -3834,6 +3834,8 @@ MonoBehaviour:
     type: 3}
   healthBar: {fileID: 2976890538505077230, guid: 424f2ee219ba3724680a5d0015ad80f3,
     type: 3}
+  gameManager: {fileID: 1864495312851587862, guid: 181c7d4edf2b5354690b99dcfbcdb6c2,
+    type: 3}
 --- !u!82 &-5490718122470971905
 AudioSource:
   m_ObjectHideFlags: 0

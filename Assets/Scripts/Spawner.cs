@@ -8,17 +8,11 @@ public class Spawner : MonoBehaviour
     [SerializeField] private Enemy[] enemyPrefab;
     [SerializeField] private TextMeshProUGUI waveText;
 
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] private Boss bossPrefab;
 
     void Start()
     {
        StartCoroutine(SpawnEnemies());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     IEnumerator SpawnEnemies(){
@@ -45,7 +39,10 @@ public class Spawner : MonoBehaviour
         }
         level += 1;
         if (level == maxLevel+1){
-            gameManager.Win();
+            bossPrefab.gameObject.SetActive(true);
+            waveText.text = $"Final Level";
+            yield return new WaitForSeconds(2f);
+            waveText.text = "";
         }
     }
 
