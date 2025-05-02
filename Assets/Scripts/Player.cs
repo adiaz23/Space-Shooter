@@ -7,7 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] private float shootRate;
     [SerializeField] private Shoots shootPrefab;
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private AudioClip clip;
+    [SerializeField] private AudioClip clipExplosion;
+    [SerializeField] private AudioClip clipLossHealth;
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject effectsPrefab;
     [SerializeField] private HealthBar healthBar;
@@ -45,6 +46,7 @@ public class Player : MonoBehaviour
 
     private void TakeDamage(int damage){
         currentLives -= damage;
+        audioSource.PlayOneShot(clipLossHealth);
         healthBar.SetHealth(currentLives);
     }
 
@@ -79,7 +81,7 @@ public class Player : MonoBehaviour
     private void DestroyPlayer(){
         GameObject  playerVisual = transform.GetChild(0).gameObject;
         Instantiate(effectsPrefab, transform.position, Quaternion.identity);
-        audioSource.PlayOneShot(clip);
+        audioSource.PlayOneShot(clipExplosion);
         playerVisual.GetComponent<SpriteRenderer>().enabled = false;
         gameObject.GetComponent<Collider2D>().enabled = false;
         Destroy(gameObject, 2f);
