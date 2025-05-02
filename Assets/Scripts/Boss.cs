@@ -95,9 +95,9 @@ public class Boss : MonoBehaviour
 
         while(bossSprite.enabled){
          yield return StartCoroutine(MoveToPosition(moveUp));
-         yield return new WaitForSeconds(1f); 
+         yield return new WaitForSeconds(1.5f); 
          yield return StartCoroutine(MoveToPosition(moveDown));
-         yield return new WaitForSeconds(1f);
+         yield return new WaitForSeconds(1.5f);
         }
 
     }
@@ -115,7 +115,7 @@ public class Boss : MonoBehaviour
         while(bossSprite.enabled){
             for(int counter = 0; counter < spawnPrefabs.Length; counter++)
                 Instantiate(shootPrefab, spawnPrefabs[counter].transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
     }   
 
    }
