@@ -4,7 +4,6 @@ using UnityEngine;
 public class Boss : MonoBehaviour
 {
     [SerializeField] private float speed;
-
     [SerializeField] private Shoots shootPrefab;
     [SerializeField] private Transform[] spawnPrefabs;
     [SerializeField] private AudioClip clip;
@@ -17,13 +16,11 @@ public class Boss : MonoBehaviour
     private Collider2D bossCollider;
     private SpriteRenderer bossSprite;
     private bool inPosition = false;
-    private bool isMoving = false;
+    private bool isMovingUpDown = false;
     private Vector2 target;
-
     private int lives = 500;
     private int remainLives;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         bossVisual = transform.GetChild(0).gameObject.transform.GetChild(1).gameObject;
@@ -39,9 +36,9 @@ public class Boss : MonoBehaviour
     {
         if (inPosition == false)
             MoveToInitialPosition();
-        else if (isMoving == false){
+        else if (isMovingUpDown == false){
             StartCoroutine(Move()); 
-            isMoving = true;
+            isMovingUpDown = true;
         }    
     }
 
@@ -52,7 +49,7 @@ public class Boss : MonoBehaviour
             healthBar.gameObject.SetActive(true);
         }
 
-        if((other.gameObject.CompareTag("Projectile") || other.gameObject.CompareTag("Player")) && bossSprite.enabled){
+        if((other.gameObject.CompareTag("Projectile") || other.gameObject.CompareTag("Player")) && bossSprite.enabled && isMovingUpDown){
             DestroyProjectile(other);
             TakeDamage(100);
             if (remainLives <= 0){
