@@ -1,5 +1,6 @@
 using System.Collections;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -45,9 +46,15 @@ public class Spawner : MonoBehaviour
     }
 
     void GenerateEnemies(){
-        float posittionY = Random.Range(-4.10f, 4.10f);
-        Vector2 randomPoint = new(transform.position.x, posittionY);
-        int randomEnemy = Random.Range(0, 2);
-        Instantiate(enemyPrefab[randomEnemy], randomPoint, Quaternion.identity);
+        int randomEnemy = Random.Range(0, enemyPrefab.Length);
+        Enemy selectedEnemy = enemyPrefab[randomEnemy];
+
+        float enemyOffset = selectedEnemy.GetComponent<BoxCollider2D>().bounds.extents.y;
+        float verticalLimit = Camera.main.orthographicSize;
+        
+        float positionY = Random.Range(-verticalLimit + enemyOffset, verticalLimit - enemyOffset);
+        Vector2 randomPoint = new(transform.position.x, positionY);
+       
+        Instantiate(selectedEnemy, randomPoint, Quaternion.identity);
     }
 }

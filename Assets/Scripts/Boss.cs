@@ -84,8 +84,14 @@ public class Boss : MonoBehaviour
     }
 
     IEnumerator Move(){
-        Vector2 moveUp = new(4f, 2.5f);
-        Vector2 moveDown = new(4f, -2.5f);
+        float verticalLimit = Camera.main.orthographicSize;
+        float bossOffset = bossSprite.bounds.extents.y;
+
+        float topY = verticalLimit - bossOffset;
+        float bottomY = -verticalLimit + bossOffset;
+
+        Vector2 moveUp = new(4f, topY);
+        Vector2 moveDown = new(4f, bottomY);
 
         while(bossSprite.enabled){
          yield return StartCoroutine(MoveToPosition(moveUp));
