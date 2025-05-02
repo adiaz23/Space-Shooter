@@ -6,7 +6,8 @@ public class Boss : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Shoots shootPrefab;
     [SerializeField] private Transform[] spawnPrefabs;
-    [SerializeField] private AudioClip clip;
+    [SerializeField] private AudioClip clipExplosion;
+    [SerializeField] private AudioClip clipDamage;
     [SerializeField] private GameObject effectsPrefab;
     [SerializeField] private HealthBar healthBar;
     [SerializeField] private GameManager gameManager;
@@ -53,7 +54,7 @@ public class Boss : MonoBehaviour
             DestroyProjectile(other);
             TakeDamage(100);
             if (remainLives <= 0){
-                audioSource.PlayOneShot(clip);
+                audioSource.PlayOneShot(clipExplosion);
                 bossSprite.enabled = false;
                 bossCollider.enabled = false;
                 Instantiate(effectsPrefab, transform.position, Quaternion.identity);
@@ -65,6 +66,7 @@ public class Boss : MonoBehaviour
 
     private void TakeDamage(int damage){
         remainLives -= damage;
+        audioSource.PlayOneShot(clipDamage);
         healthBar.SetHealth(remainLives);
     }
 
