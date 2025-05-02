@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
-            if(isPaused && !pauseUI.activeSelf){
-                 Resume();
+            if(isPaused){
+                Resume();
             } else {
                 Pause();
             }     
@@ -45,7 +45,7 @@ public class GameManager : MonoBehaviour
     }
 
     public void GoToOptionsMenu(){
-        SceneManager.LoadScene("Options", LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync("Options", LoadSceneMode.Additive);
     }
 
     public void Back(){
@@ -64,9 +64,5 @@ public class GameManager : MonoBehaviour
             Time.timeScale = 0f;
             isPaused = true;
         }    
-    }
-
-    public void Quit(){
-        Application.Quit();
     }
 }
