@@ -16,7 +16,6 @@ public class Player : MonoBehaviour
     private float timer = 0.5f;
     private int lives = 100;
     private int currentLives;
-
     private int damageTaken = 10;
 
     void Start(){

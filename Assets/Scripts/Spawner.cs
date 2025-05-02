@@ -6,7 +6,6 @@ public class Spawner : MonoBehaviour
 {
     [SerializeField] private Enemy[] enemyPrefab;
     [SerializeField] private TextMeshProUGUI waveText;
-
     [SerializeField] private Boss bossPrefab;
 
     void Start()

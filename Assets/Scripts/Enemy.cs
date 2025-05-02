@@ -7,10 +7,17 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Shoots shootPrefab;
     [SerializeField] private Transform[] spawnPrefabs;
     [SerializeField] private AudioClip clip;
-    private AudioSource audioSource;
     [SerializeField] private GameObject effectsPrefab;
 
+    private GameObject enemyVisual;
+    private SpriteRenderer enemySprite;
+    private Collider2D enemyCollider;
+    private AudioSource audioSource;
+
     void Start(){
+        enemyVisual = transform.GetChild(0).gameObject.transform.GetChild(1).gameObject;
+        enemySprite = enemyVisual.GetComponent<SpriteRenderer>();
+        enemyCollider = gameObject.GetComponent<Collider2D>();
         audioSource = GetComponent<AudioSource>();
         StartCoroutine(Shoot());
     }
@@ -24,10 +31,7 @@ public class Enemy : MonoBehaviour
         transform.Translate(speed * Time.deltaTime * new Vector2(-1,0));
     }
 
-    IEnumerator Shoot(){
-        GameObject enemyVisual = transform.GetChild(0).gameObject.transform.GetChild(1).gameObject;
-        SpriteRenderer enemySprite = enemyVisual.GetComponent<SpriteRenderer>();
-        
+    IEnumerator Shoot(){        
         while(enemySprite.enabled){
             for(int counter = 0; counter < spawnPrefabs.Length; counter++)
                 Instantiate(shootPrefab, spawnPrefabs[counter].transform.position, Quaternion.identity);
@@ -38,10 +42,6 @@ public class Enemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        GameObject enemyVisual = transform.GetChild(0).gameObject.transform.GetChild(1).gameObject;
-        SpriteRenderer enemySprite = enemyVisual.GetComponent<SpriteRenderer>();
-        Collider2D enemyCollider = gameObject.GetComponent<Collider2D>();
-
         if((other.gameObject.CompareTag("Projectile") || other.gameObject.CompareTag("Player")) && enemySprite.enabled){
              DestroyProjectile(other);
              audioSource.PlayOneShot(clip);
