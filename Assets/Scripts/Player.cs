@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -12,14 +13,29 @@ public class Player : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private GameObject effectsPrefab;
     [SerializeField] private HealthBar healthBar;
+    [SerializeField] private Joystick joystick;
+    [SerializeField] private Button shootButton;
 
-    private AudioSource audioSource;   
+    private AudioSource audioSource; 
+    private GameObject  playerVisual; 
     private float timer = 0.5f;
-    private int lives = 100;
+    private readonly int lives = 100;
     private int currentLives;
-    private int damageTaken = 10;
+    private readonly int damageTaken = 10;
+    private bool isMobile;
+    private bool isShooting;
+
+    void Awake()
+    {
+        isMobile = Application.isMobilePlatform;
+    }
 
     void Start(){
+        if (isMobile){
+            joystick.gameObject.SetActive(true);
+            shootButton.gameObject.SetActive(true);
+        }
+        playerVisual = transform.GetChild(0).gameObject; 
         currentLives = lives;
         healthBar.SetMaxHealth(lives);
         audioSource = GetComponent<AudioSource>();
@@ -29,7 +45,9 @@ public class Player : MonoBehaviour
     {   
         Move();
         DelimitMove();
-        Shoot();
+        timer += 1 * Time.deltaTime;
+        if(Input.GetKey(KeyCode.Space) || isShooting)
+            Shoot();
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -51,10 +69,19 @@ public class Player : MonoBehaviour
     }
 
     private void Move(){
-        //Vertical movement
-        float horizontalMovement = Input.GetAxisRaw("Horizontal");
-        float verticalMovement = Input.GetAxisRaw("Vertical");
+        float horizontalMovement;
+        float verticalMovement;
+
+       if(isMobile){
+        horizontalMovement = joystick.Horizontal;
+        verticalMovement = joystick.Vertical;
+        transform.Translate(speed * Time.deltaTime * new Vector2(horizontalMovement, verticalMovement));
+       } else {
+        horizontalMovement = Input.GetAxisRaw("Horizontal");
+        verticalMovement = Input.GetAxisRaw("Vertical");
         transform.Translate(speed * Time.deltaTime * new Vector2(horizontalMovement, verticalMovement).normalized);
+       }
+ 
     }
 
     private void DelimitMove(){
@@ -65,21 +92,22 @@ public class Player : MonoBehaviour
     }
 
     private void Shoot(){
-
-        timer += 1 * Time.deltaTime;
-
-        if(Input.GetKey(KeyCode.Space) && timer > shootRate){
-            
+        if(timer > shootRate){
             for(int counter = 0; counter < 2; counter++)
                 Instantiate(shootPrefab, spawnPoints[counter].transform.position, Quaternion.identity);
-            
             timer = 0;
         }
+    }
 
+    public void OnPointerDown(){
+        isShooting = true;
+    }
+
+      public void OnPointerUp(){
+        isShooting = false;
     }
 
     private void DestroyPlayer(){
-        GameObject  playerVisual = transform.GetChild(0).gameObject;
         Instantiate(effectsPrefab, transform.position, Quaternion.identity);
         audioSource.PlayOneShot(clipExplosion);
         playerVisual.GetComponent<SpriteRenderer>().enabled = false;
