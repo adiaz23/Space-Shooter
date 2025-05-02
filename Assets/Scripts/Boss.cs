@@ -21,6 +21,7 @@ public class Boss : MonoBehaviour
     private Vector2 target;
     private int lives = 500;
     private int remainLives;
+    private readonly int damageTaken = 25;
 
     void Start()
     {
@@ -52,7 +53,7 @@ public class Boss : MonoBehaviour
 
         if((other.gameObject.CompareTag("Projectile") || other.gameObject.CompareTag("Player")) && bossSprite.enabled && isMovingUpDown){
             DestroyProjectile(other);
-            TakeDamage(100);
+            TakeDamage(damageTaken);
             if (remainLives <= 0){
                 audioSource.PlayOneShot(clipExplosion);
                 bossSprite.enabled = false;
