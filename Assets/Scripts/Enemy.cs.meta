@@ -1,2 +1,17 @@
 fileFormatVersion: 2
 guid: 3a4833b8de0e61c44981d81992bb6977
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shootPrefab: {fileID: 4653423898491474327, guid: fabec3f227e846543a46679c786517fe,
+      type: 3}
+  - spawn1Prefab: {fileID: 374131689710876922, guid: 25e4920b99e66f74085aa7f9e03f700e,
+      type: 3}
+  - spawn2Prefab: {fileID: 8410988177599113283, guid: b63d4475612b9a2429061af1c89c35e7,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

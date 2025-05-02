@@ -1,2 +1,17 @@
 fileFormatVersion: 2
 guid: 7242b6250e01abc439447bd3ceb8faa5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - shootPrefab: {fileID: 5038634352791077503, guid: 0863c82d61440aa44aecdea20ea2f062,
+      type: 3}
+  - spawnPoint1: {fileID: 4137365568795547151, guid: 038f38723b8d48c44991d6e13b759043,
+      type: 3}
+  - spawnPoint2: {fileID: 9068039191399693805, guid: e00800f0432ed944080421880c6b1564,
+      type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
