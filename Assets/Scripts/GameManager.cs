@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape)){
-            if(isPaused){
+            if(isPaused && !pauseUI.activeSelf){
                  Resume();
             } else {
                 Pause();
