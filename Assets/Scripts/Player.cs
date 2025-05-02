@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     private readonly int lives = 100;
     private int currentLives;
     private readonly int damageTaken = 10;
+    private float boundaryOffset;
     private bool isMobile;
     private bool isShooting;
 
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
             shootButton.gameObject.SetActive(true);
         }
         playerVisual = transform.GetChild(0).gameObject; 
+        boundaryOffset = GetComponent<BoxCollider2D>().bounds.extents.y; 
         currentLives = lives;
         healthBar.SetMaxHealth(lives);
         audioSource = GetComponent<AudioSource>();
@@ -86,8 +88,11 @@ public class Player : MonoBehaviour
 
     private void DelimitMove(){
         //Delimitation
-        float horizontalDelimitation = Math.Clamp(transform.position.x, -8.19f, 8.19f);
-        float verticalDelimitation = Math.Clamp(transform.position.y, -4.18f, 4.18f);
+        float verticalLimit =  Camera.main.orthographicSize - boundaryOffset;
+        float horizontalLimit = verticalLimit * Camera.main.aspect;
+
+        float horizontalDelimitation = Math.Clamp(transform.position.x, -horizontalLimit, horizontalLimit);
+        float verticalDelimitation = Math.Clamp(transform.position.y, -verticalLimit, verticalLimit);
         transform.position = new Vector2(horizontalDelimitation, verticalDelimitation);
     }
 
