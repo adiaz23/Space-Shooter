@@ -8,7 +8,7 @@ I developed a Space Shooter using Unity where the player takes the control of a 
 
 The game mechanics are:
 
-- Progress throgh differents waves of enemies
+- Progress through differents waves of enemies
 - Space ship controlled by the player.
 - Two types of enemies.
 - A HUD that shows the player's lives.
