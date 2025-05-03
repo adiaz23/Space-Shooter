@@ -23,9 +23,11 @@ The game mechanics are:
 ## Controllers
 
 **Desktop**
+
 The Spaceship can be controlled using either the arrow keys or the WASD keys. To shoot, press the spacebar. To open the Pause menu, press Escape.
 
 **Mobile**
+
 On mobile, a joystick and a button will be available on the screen to play.
 
 ## Assets
